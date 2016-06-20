@@ -1,4 +1,4 @@
-package V1;
+package projet_java;
 
 class Robot extends Agent{
 	char etat;
@@ -10,5 +10,22 @@ class Robot extends Agent{
 		this.dir=dir;
 		aff=n;
 		Rob.add(this);
+	}
+	
+	void avancer(String direction) {
+		switch(direction){
+		case "direction_bas" :
+			pos_y--;
+			break;
+		case "direction_haut" :
+			pos_y++;
+			break;
+		case "direction_droite" :
+			pos_x++;
+			break;
+		case "direction_gauche" :
+			pos_x--;
+			break;
+		}
 	}
 }

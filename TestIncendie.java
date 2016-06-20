@@ -7,8 +7,6 @@ public class TestIncendie {
 		
 		Carrefour.init();
 		System.out.println(Agent.LVC);
-		Carrefour cc= (Carrefour)(Agent.LVC.get(4));
-		System.out.println(cc.pos_x+ " "+cc.pos_y);
 		Agent.affiche();
 	}
 }

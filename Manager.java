@@ -1,4 +1,4 @@
-package projet_java;
+package V1;
 
 import javax.swing.JFrame;
 
@@ -14,5 +14,6 @@ public class Manager {
 	
 	public static void main(String[] args) {
 		Manager m = new Manager();
+		System.out.println(Agent.affiche());
 	}
 }

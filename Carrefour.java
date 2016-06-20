@@ -8,7 +8,7 @@ class Carrefour extends Agent{
 	boolean voie;
 	void cycle(){}
 	Carrefour(int posX,int posY,char type,int fin,int largeur,int hauteur,boolean voie){
-		aff="C_";
+		aff=" _";
 		pos_x=posX;pos_y=posY;
 		larg=largeur;
 		haut=hauteur;
@@ -19,7 +19,7 @@ class Carrefour extends Agent{
 	}
 	
 	Carrefour(int posX,int posY,boolean voie){
-		if (voie)aff=" _";else aff="C_";
+		if (voie)aff=" _";else aff=" _";
 		pos_x=posX;pos_y=posY;
 		this.type='C';
 		this.voie=voie; //True si c'est une voie 

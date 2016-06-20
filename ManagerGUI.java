@@ -1,4 +1,4 @@
-package projet_java;
+package V1;
 
 import java.util.*;
 import javax.swing.*;
@@ -11,11 +11,14 @@ public class ManagerGUI implements ActionListener {
 	ManagerGUI(int n) {
 		//init();
 		JButton bInit = new JButton("Init");
-		JButton bPaP = new JButton ("Pas à Pas");
+		JButton bPaP = new JButton ("Pas a Pas");
 		JButton bResol = new JButton ("Resolution");
 		GridLayout d = new GridLayout(n+1, n);
 		JFrame fenetre = new JFrame();
 		JPanel affichage = new JPanel();
+		affichage.setPreferredSize(new Dimension(350,400));
+		JTextArea map=new JTextArea();
+		affichage.add(map);
 		JPanel commande = new JPanel();
 		Container c = fenetre.getContentPane();
 		c.setLayout(d);
@@ -30,7 +33,7 @@ public class ManagerGUI implements ActionListener {
 		
 		Manager.Affichage = fenetre;
 		fenetre.setVisible(true);
-		fenetre.setSize(n*80, n*100 );
+		fenetre.setSize(n*120, n*150 );
 	    fenetre.setLocationRelativeTo(null);
 	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 	}
@@ -39,10 +42,14 @@ public class ManagerGUI implements ActionListener {
 		// TODO Auto-generated method stub
 		String s = e.getActionCommand();
 		if (s.equals("Init")) {
+			Carrefour.init();
+			
 			System.out.println("Bouton Init");
+			//affichage.add()
+			
 		}
-		else if (s.equals("Point à Point")) {
-			System.out.println("Bouton Point à Point");
+		else if (s.equals("Point a Point")) {
+			System.out.println("Bouton Point a Point");
 		}
 		else if (s.equals("Resolution")) {
 			System.out.println("Bouton Resolution");

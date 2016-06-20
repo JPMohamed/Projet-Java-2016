@@ -12,22 +12,29 @@ abstract class Agent{
 	int pos_y;
 	String aff;
 	abstract void cycle();
-	static void affiche(){
+	static String affiche(){
 		String s="   ";
 		for(int i=1;i<10;i++) s+=+i+"_";
 		for(int i=0;i<10;i++) s+=+i+"_";
 		for(int i=0;i<10;i++) s+=+i+"_";
-		System.out.println(s+"0");
+		s+="0\n";
+		
 		
 		for(int i=1;i<=nl;i++){
-			if(i<10)s=" "+i;else s=""+i;
-			System.out.print(s+")");
-			
-			for(int j=1;j<=nc;j++){
-				System.out.print(caractereImprimable(i,j));
+			if(i<10){
+				s+=" "+i;
 			}
-			System.out.println();
+			else{
+				s+=""+i;
+				
+			}
+			s+=")";
+			for(int j=1;j<=nc;j++){
+				s+=caractereImprimable(i,j);
+			}
+			s+="\n";
 		}
+		return s;
 	}
 	static String caractereImprimable(int i,int j){
 		String r="X_"; // affichage papier

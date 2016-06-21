@@ -55,4 +55,8 @@ abstract class Agent{
 	public String toString(){
 		return getClass().getSimpleName()+" "+pos_x+" "+pos_y+" / ";
 	}
+	
+	public void bonjour() {
+		
+	}
 }

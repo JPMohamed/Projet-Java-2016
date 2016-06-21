@@ -1,4 +1,4 @@
-package V1;
+package projet_java.trunk;
 
 import javax.swing.JFrame;
 
@@ -7,7 +7,7 @@ public class Manager {
 	static JFrame Affichage;
 	
 	Manager() {
-		ManagerGUI mGUI = new ManagerGUI(5);
+		ManagerGUI mGUI = new ManagerGUI();
 		
 		//mGUI.setVisible(true);
 	}

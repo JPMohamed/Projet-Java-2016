@@ -1,4 +1,4 @@
-package V1;
+package projet_java.trunk;
 
 public class TestIncendie {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package V1;
+package projet_java.trunk;
 import java.util.*;
 
 
@@ -13,7 +13,7 @@ abstract class Agent{
 	String aff;
 	abstract void cycle();
 	static String affiche(){
-		String s="   ";
+		String s="      ";
 		for(int i=1;i<10;i++) s+=+i+"_";
 		for(int i=0;i<10;i++) s+=+i+"_";
 		for(int i=0;i<10;i++) s+=+i+"_";
@@ -22,7 +22,7 @@ abstract class Agent{
 		
 		for(int i=1;i<=nl;i++){
 			if(i<10){
-				s+=" "+i;
+				s+="  "+i;
 			}
 			else{
 				s+=""+i;

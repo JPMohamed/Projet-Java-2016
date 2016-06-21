@@ -1,4 +1,4 @@
-package V1;
+package projet_java.trunk;
 
 class Robot extends Agent{
 	char etat;

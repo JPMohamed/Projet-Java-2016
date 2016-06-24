@@ -126,6 +126,7 @@ class Carrefour extends Agent{
 			}
 		}
 		System.out.println(Agent.LVC);
+		Robot.init();
 	}
 	
 }

@@ -11,4 +11,9 @@ class Robot extends Agent{
 		aff=n;
 		Rob.add(this);
 	}
+	
+	static void initRobot(){
+		Agent.Rob.add(new Robot(1,1, 'S',"a"));
+		Agent.Rob.add(new Robot(30, 30, 'N', "b"));
+	}
 }

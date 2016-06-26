@@ -8,6 +8,15 @@ import java.awt.event.ActionListener;
 
 public class ManagerGUI extends JFrame implements ActionListener {
 
+	JPanel container;
+	GridBagLayout general;
+	GridBagConstraints c;
+	JButton bInit;
+	JButton bPaP;
+	JButton bResol;
+	JTextArea affichage;
+	String result;
+	
 	ManagerGUI() {
 		//init();
 		
@@ -15,16 +24,16 @@ public class ManagerGUI extends JFrame implements ActionListener {
 		this.setSize(500, 600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		JPanel container = new JPanel();
+		container = new JPanel();
 		container.setPreferredSize(new Dimension(450, 550));
-		GridBagLayout general = new GridBagLayout();
+		general = new GridBagLayout();
 		container.setLayout(general);
-		GridBagConstraints c = new GridBagConstraints();
+		c = new GridBagConstraints();
 		
 		
-		JButton bInit = new JButton ("Init");
-		JButton bPaP = new JButton ("Pas a pas");
-		JButton bResol = new JButton ("Resolution");
+		bInit = new JButton ("Init");
+		bPaP = new JButton ("Pas a pas");
+		bResol = new JButton ("Resolution");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 0;
@@ -41,9 +50,8 @@ public class ManagerGUI extends JFrame implements ActionListener {
 		c.weightx = 2;
 		container.add(bResol, c);
 				
-		JTextArea affichage = new JTextArea();
-		Carrefour.init();
-		String result;
+		affichage = new JTextArea();
+		affichage.setFont(new Font("Courier", Font.PLAIN, 12));
 		result = Agent.affiche();
 		affichage.setText(result);
 		
@@ -97,13 +105,17 @@ public class ManagerGUI extends JFrame implements ActionListener {
 		String s = e.getActionCommand();
 		if (s.equals("Init")) {
 			Carrefour.init();
-			//affichage.setText(Agent.affiche());
+			Robot.initRobot();
+			affichage.setText(Agent.affiche());
 			System.out.println("Bouton Init");
+			
 			//affichage.add()
 			
 		}
-		else if (s.equals("Point a Point")) {
+		else if (s.equals("Pas a pas")) {
 			System.out.println("Bouton Point a Point");
+			Robot.pasApas();
+			affichage.setText(Agent.affiche());
 		}
 		else if (s.equals("Resolution")) {
 			System.out.println("Bouton Resolution");

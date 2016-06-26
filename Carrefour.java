@@ -8,7 +8,7 @@ class Carrefour extends Agent{
 	boolean voie;
 	void cycle(){}
 	Carrefour(int posX,int posY,char type,int fin,int largeur,int hauteur,boolean voie){
-		aff="  _";
+		aff=" _";
 		pos_x=posX;pos_y=posY;
 		larg=largeur;
 		haut=hauteur;
@@ -19,7 +19,7 @@ class Carrefour extends Agent{
 	}
 	
 	Carrefour(int posX,int posY,boolean voie){
-		if (voie)aff="  _";else aff="  _";
+		if (voie)aff=" _";else aff=" _";
 		pos_x=posX;pos_y=posY;
 		this.type='C';
 		this.voie=voie; //True si c'est une voie 
@@ -48,11 +48,11 @@ class Carrefour extends Agent{
 		c14=new Carrefour(14,23, 'T', 5, 2, 3, false);
 		c15=new Carrefour(14,30, 'S', 5, 1, 3, false);
 		
-		c16=new Carrefour(22,1, 'N', 5, 1, 2, false);
-		c17=new Carrefour(22,7, 'T', 5, 2, 2, false);
-		c18=new Carrefour(22,14, 'T', 5, 3, 2, false);
-		c19=new Carrefour(22,23, 'T', 5, 2, 2, false);
-		c20=new Carrefour(22,30, 'S', 5, 1, 2, false);
+		c16=new Carrefour(22,1, 'N', 6, 1, 2, false);
+		c17=new Carrefour(22,7, 'T', 6, 2, 2, false);
+		c18=new Carrefour(22,14, 'T',6, 3, 2, false);
+		c19=new Carrefour(22,23, 'T', 6, 2, 2, false);
+		c20=new Carrefour(22,30, 'S', 6, 1, 2, false);
 		
 		c21=new Carrefour(30,1, 'N', 6, 1, 1, false);
 		c22=new Carrefour(30,7, 'O', 6, 2, 1, false);
@@ -77,7 +77,7 @@ class Carrefour extends Agent{
 				}
 				
 			
-				if(c.type=='T' || c.type=='E' ){// si on a un 4 voie on crÃ© les voies ou voie Est
+				if(c.type=='T' || c.type=='E' ){// si on a un 4 voie on cré les voies ou voie Est
 					
 					for(int l=0;l<c.haut;l++){
 						for(int h=0;h<c.fin;h++){
@@ -88,7 +88,7 @@ class Carrefour extends Agent{
 					}
 				}
 				
-				if(c.type=='T' || c.type=='O' ){// si on a un 4 voie on crÃ© les voies ou voie ouest
+				if(c.type=='T' || c.type=='O' ){// si on a un 4 voie on cré les voies ou voie ouest
 					
 					for(int l=0;l<c.haut;l++){
 						for(int h=0;h<c.fin;h++){
@@ -99,7 +99,7 @@ class Carrefour extends Agent{
 					}
 				}
 				
-				if(c.type=='T' || c.type=='N' ){// si on a un 4 voie on crÃ© les voies ou voie Nord
+				if(c.type=='T' || c.type=='N' ){// si on a un 4 voie on cré les voies ou voie Nord
 					
 					for(int l=0;l<c.fin;l++){
 						for(int h=0;h<c.larg;h++){
@@ -108,7 +108,7 @@ class Carrefour extends Agent{
 					}
 				}
 				
-				if(c.type=='T' || c.type=='S' ){// si on a un 4 voie on crÃ© les voies ou voie Sud
+				if(c.type=='T' || c.type=='S' ){// si on a un 4 voie on cré les voies ou voie Sud
 					
 					for(int l=0;l<c.fin;l++){
 						for(int h=0;h<c.larg;h++){
@@ -126,7 +126,39 @@ class Carrefour extends Agent{
 			}
 		}
 		System.out.println(Agent.LVC);
-		Robot.init();
+	}
+	
+	public static boolean estCarefour(int x,int y){
+		for(int i=0;i<Agent.LVC.size();i++){
+			Carrefour c=(Carrefour)Agent.LVC.get(i);
+			if(x==c.pos_x&&y==c.pos_y&&c.estCarefour()) return true;
+		}
+		return false;
+				
+	}
+	
+	// return true si on est sur un carrefour et false si on est sur une voie
+	public boolean estCarefour(){
+		return !voie;
+	}
+	
+	public static boolean estPapier(int x,int y){
+		
+		for(int i=0;i<Agent.LVC.size();i++){
+			Carrefour c=(Carrefour)Agent.LVC.get(i);
+			if(x==c.pos_x&&y==c.pos_y) return false;
+		}
+		return true;
+				
+	}
+	public static boolean testDansLimite(int x,int y){
+		return x>=1&&y>=1&&x<=30&&y<=30;
+	}
+	public static boolean ilYAUneVoie(int x,int y){
+		System.out.println(x + "-"+y);
+		System.out.println("papier " + estPapier(x, y));
+		System.out.println(" limite " +testDansLimite(x, y));
+		return(!estPapier(x, y)&& testDansLimite(x, y));
 	}
 	
 }
